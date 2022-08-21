@@ -28,7 +28,6 @@ def plot_cours(name,color='red'):
         width=1000,
         height=300
     ).add_selection(x_sel)
-    """print("max_price=", max, "min_price=", min,)"""
     db.close()
     return ( chart.interactive())
 
