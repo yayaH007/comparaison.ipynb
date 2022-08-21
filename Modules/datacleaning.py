@@ -159,16 +159,13 @@ def clean(text,nlp):
             stop_words.remove(w)
         else:
             continue
-
     liste = []
     for token in doc:
         liste.append((token, token.pos_))
-
     liste2 = []
     for token, tag in liste:
         if not ((token.text in stop_words) or (len(token.text) == 1) or (len(token.text) == 2)):
             liste2.append((token, tag))
-
     liste3 = []
     for token, tag in liste2:
         liste3.append((token.lemma_))
@@ -192,7 +189,6 @@ def clean(text,nlp):
     topp40 = [word[0] for word in common_words40]
     top40 = (' '.join(topp40))
     sentiment40 = tb(top40).sentiment
-
     return(ct,sentiment[0],sentiment[1],top20,sentiment20[0],sentiment20[1],top30,sentiment30[0],sentiment30[1],top40,sentiment40[0],sentiment40[1])
 
 
@@ -204,7 +200,6 @@ def MLdata(name,periode):
         query='select Variation , text,cleanText, cleanTextPolarity,cleanTextSubjectivity,top20words,top20wordsPolarity,top20wordsSubjectivity,top30words,top30wordsPolarity,top30wordsSubjectivity ,top40words,top40wordsPolarity,top40wordsSubjectivity  from NewsAnalysisPer'+periode+' order by date_deb asc'
     if(periode=="Day") :
         query='select Variation ,text , cleanText,cleanTextPolarity,cleanTextSubjectivity,top20words,top20wordsPolarity,top20wordsSubjectivity from NewsAnalysisPer'+periode+' order by Date asc'
-
     df = pd.read_sql_query(query, db)
     variation=list(df['Variation'])
     variation=[variation[i+1] for i in range(len(variation)-1)]

@@ -1,11 +1,6 @@
-
-
-import altair as alt
 import pandas as pd
 import sqlite3
-import matplotlib.pyplot as plt
-import site
-import sys
+
 
 
 #compare todays values to older values
@@ -38,6 +33,7 @@ def comparaisonToday (name, periode,date_saisi) :
         q=((rank/n)).round(3)
         return (q)
 
+
 #compare this trimeter/month's mean value to older values
 def comparaisonPeriode(name,periode,date_saisi):
     if periode!= "Trimester" and periode!= "Month" and periode!="Week" :
@@ -52,8 +48,8 @@ def comparaisonPeriode(name,periode,date_saisi):
     rank = df.Rank.iat[0]
     n = len(df)
     q = ((rank / n) ).round(3)
-    #print("Date: " ,date_saisi , " : This "+periode+" mean value of ",name," stocks:", valeur_now.round(3)," is the ",q, "% pourcentile of all "+periode+"s mean values")
     return (q)
+
 
 
 def calcule_indice(name,periode,date_saisi) :
@@ -64,7 +60,6 @@ def calcule_indice(name,periode,date_saisi) :
     if (name=="Airbnb") :
         k_cac = comparaisonPeriode("Dow_Jones", "Month", date_saisi) / 100
     print(k_today)
-    """k_periode=1-comparaisonPeriode(name,periode)"""
     location = 'C:/Users/eyaha/PycharmProjects/Memoire/CoursActions' + name + '.sqlite'
     db = sqlite3.connect(location)
     query=f"select NoteFinale , Date  from Consensus where Date='{date_saisi}'"

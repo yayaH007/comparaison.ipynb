@@ -5,7 +5,6 @@ import sqlite3
 
 
 #observation  graphique des donnée de la bdd
-
 def plot_cours(name,color='red'):
     location = 'C:/Users/eyaha/PycharmProjects/Memoire/CoursActions'+name+'.sqlite'
     db = sqlite3.connect(location)
@@ -31,12 +30,10 @@ def plot_cours(name,color='red'):
     db.close()
     return ( chart.interactive())
 
-
 def plot_two(name1,name2) :
     chart1 = plot_cours(name1,'steelblue')
     chart2 = plot_cours(name2)
     return ((chart1 + chart2).interactive())
-
 
 def plot_cours_mean(name,periode) :
     table_name = 'meanPrice'+'per'+periode
@@ -62,7 +59,6 @@ def plot_cours_mean(name,periode) :
     db.close()
     return((chart+chart2).interactive())
 
-
 def plot_variation(name):
     location = 'C:/Users/eyaha/PycharmProjects/Memoire/CoursActions' + name + '.sqlite'
     db = sqlite3.connect(location)
@@ -80,7 +76,6 @@ def plot_variation(name):
         )).properties(width=1000, height=300)
     db.close()
     return (chart.interactive())
-
 
 
 def histogramePriceAll(name) :
@@ -110,7 +105,6 @@ def histogramePriceMonth(name) :
     ).properties(
     title='This Month Histogram ')
     return(hist.interactive())
-
 
 
 def histogramePriceTrimestre(name) :

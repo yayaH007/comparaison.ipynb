@@ -20,7 +20,6 @@ def strategie(lll,name, db, date_achat, param, listeprixbas, listedatebas, achat
     prix = df["Dernier"].iat[0]
     achat = 0
     indiceAction = comparaisonToday(name, param['periode_analyse_cours_action'], date_str)
-
     if (indiceAction <= param['centile_max_action']):
         namesIndice="CAC40"
         if (name=="Airbnb") :
@@ -90,7 +89,6 @@ def teststrategie(name, param):
             listedate.append(d)
     listedate=listedate[param['periode_attente_vente']:]
 
-
     listeprixbas = []
     listedatebas = []
     achatoupas = []
@@ -104,11 +102,9 @@ def teststrategie(name, param):
     for date in listedate:
         #print(date)
         res=(strategie(lll,name, db, date, param, listeprixbas, listedatebas, achatoupas, venteoupas, listeprixvente,listedatevente))
-
     nb_strategie_fonctionne=0
     nb_strategie_fonctionne_pas=0
     ratio_strategie_fonctionn=[]
-
     for i in range(len(achatoupas)) :
         if (achatoupas[i]==1 ):
             if (venteoupas[i]==1 ):
@@ -122,7 +118,6 @@ def teststrategie(name, param):
         precision=0
     else:
         precision = nb_strategie_fonctionne / (nb_strategie_fonctionne + nb_strategie_fonctionne_pas)
-
     if precision!=0 :
         return {'Ratio Moyen du gain ':np.mean(ratio),'Precision': precision ,"nb_strategie_excute":nb_strategie_fonctionne + nb_strategie_fonctionne_pas }
 

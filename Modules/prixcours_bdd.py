@@ -1,10 +1,7 @@
 import pandas as pd
-
 import requests
-
 import sqlite3
 from datetime import datetime
-
 
 
 #extraction des données du cours du site Boursorama
@@ -49,14 +46,12 @@ def create_db(url1, url2,name):
     print('data base created')
     db.close()
 
-
 def db_complete(url1, url2,name):
     location = 'C:/Users/eyaha/PycharmProjects/Memoire/CoursActions' + name + '.sqlite'
     db = sqlite3.connect(location)
     query="select max(Date) from Action"
     date_max=pd.read_sql_query(query,db).iat[0, 0]
     date_max= datetime.strptime(date_max, "%Y-%m-%d").date()
-
     i = 1
     url = url1 + str(i) + url2
     html = requests.get(url).content

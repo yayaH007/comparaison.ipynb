@@ -28,7 +28,6 @@ def PriceMean(name,periode) :
             dfgliss=dfgliss.append({'date_deb':date_deb, 'date_fin': date_fin, 'prix_moyen':mean}, ignore_index=True)
             j=i+1
             liste=[]
-
     if (j!=len(df)) :
         date_deb = df.loc[j, "Date"]
         date_fin = df.loc[len(df)-1, "Date"]
@@ -44,7 +43,6 @@ def PriceMean(name,periode) :
             ll.append(1)
         else:
             ll.append(0)
-
     dfgliss['Variation'] = ll
     table_name = 'meanPrice'  +'per'+periode
     dfgliss.to_sql(table_name, db, if_exists='replace')

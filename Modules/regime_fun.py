@@ -1,15 +1,7 @@
 import pandas as pd
 import requests
-import scrapy
-import spacy
-import fr_core_news_sm
-from collections import Counter
-import pytextrank
-
-from sqlalchemy import create_engine
 import sqlite3
 from datetime import datetime , date
-
 
 #extraction du consensus des analysts et stockage dans la bdd
 def consensusdb(name ,url_consensus):
@@ -44,11 +36,9 @@ def consensusdb(name ,url_consensus):
     if (5 <= note < 6):
         consen ="Vendre"
         conseil ="Une baisse des cours est prédite, il faut vendre le titre dès que possible"
-
     notelist = [1 * nb_achater,0.75 * nb_renforcer,0.5 * nb_conserver,0.25 * nb_alleger]
     Date = date.today()
     noteF=sum(notelist)/nb_analyst
-
     df = pd.DataFrame(columns=['Date','nbAnalyst ','nbAchater',
                                'nbRenforcer','nbConserver','nbAlleger',
                                'nbVendre','NoteFinale','ConsensusAnalystes'])
