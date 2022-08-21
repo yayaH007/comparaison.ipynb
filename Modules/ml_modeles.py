@@ -185,5 +185,3 @@ def modele6(name, periode) :
                         epochs=num_epochs,
                         validation_data=(testing_padded, testing_labels),
                         verbose=2)
-
-

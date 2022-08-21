@@ -66,16 +66,3 @@ def consensusdb(name ,url_consensus):
     else :
         print ("no data to add to consensus")
     db.close()
-
-
-
-
-
-
-
-
-
-
-
-
-

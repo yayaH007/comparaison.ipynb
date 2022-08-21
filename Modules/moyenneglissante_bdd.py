@@ -50,7 +50,3 @@ def PriceMean(name,periode) :
     dfgliss.to_sql(table_name, db, if_exists='replace')
     print('data base created')
     db.close()
-
-
-
-
