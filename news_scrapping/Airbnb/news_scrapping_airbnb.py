@@ -39,22 +39,3 @@ process.crawl(ScrapeNewsSpider)
 process.start()
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

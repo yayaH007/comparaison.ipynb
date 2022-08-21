@@ -35,23 +35,3 @@ process = CrawlerProcess(settings={
 process.crawl(ScrapeNewsSpider)
 process.start()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
