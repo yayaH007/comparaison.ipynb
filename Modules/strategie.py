@@ -127,3 +127,5 @@ def teststrategie(name, param):
         return {'Ratio Moyen du gain ':np.mean(ratio),'Precision': precision ,"nb_strategie_excute":nb_strategie_fonctionne + nb_strategie_fonctionne_pas }
 
 
+
+

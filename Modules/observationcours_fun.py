@@ -144,3 +144,5 @@ def histogramePriceYear(name) :
     return(hist.interactive())
 
 
+
+

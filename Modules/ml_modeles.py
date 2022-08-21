@@ -187,3 +187,4 @@ def modele6(name, periode) :
                         verbose=2)
 
 
+

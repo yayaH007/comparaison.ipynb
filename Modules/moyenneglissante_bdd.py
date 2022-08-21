@@ -52,3 +52,4 @@ def PriceMean(name,periode) :
     db.close()
 
 
+
