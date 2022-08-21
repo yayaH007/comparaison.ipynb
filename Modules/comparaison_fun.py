@@ -102,3 +102,5 @@ def calcule_indice(name,periode,date_saisi) :
 
 
 
+
+

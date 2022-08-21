@@ -16,14 +16,14 @@ def plot_cours(name,color='red'):
     min = df.Dernier.min()
     df["Dernier01"]=df["Dernier"]/max
     x = alt.X('Date:T', scale=alt.Scale(domain=[start_date, end_date], clamp=True))
-    y = alt.Y('Dernier01:Q', title='Price', scale=alt.Scale(domain=[min/max - 5/max, max/max + 5/max], clamp=True))
+    y = alt.Y('Dernier:Q', title='Price', scale=alt.Scale(domain=[min - 5, max + 5], clamp=True))
     x_sel = alt.selection_interval(encodings=['x'])
     chart = alt.Chart(df). \
         mark_line(color=color, opacity=0.6). \
         encode(
         x=x,
         y=y,
-        tooltip=[alt.Tooltip('Date:T'), alt.Tooltip('Dernier01', title='Price')]). \
+        tooltip=[alt.Tooltip('Date:T'), alt.Tooltip('Dernier', title='Price')]). \
         properties(
         width=1000,
         height=300
