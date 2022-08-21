@@ -214,3 +214,5 @@ def MLdata(name,periode):
     df.drop(df[df.text==""].index, inplace=True)
     df.to_sql('MLData'+periode, db, if_exists='replace')
     print('MLData'+periode+' created')
+
+

@@ -98,3 +98,5 @@ def db_complete(url1, url2,name):
         else:
             print('No new data to add to database')
     db.close()
+
+

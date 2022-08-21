@@ -99,3 +99,5 @@ def calcule_indice(name,periode,date_saisi) :
         print("k_consensus=", k_consensus, "  k_cac=", k_cac, "k_action", k_today)
 
     return(k)
+
+

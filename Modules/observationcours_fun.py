@@ -142,3 +142,5 @@ def histogramePriceYear(name) :
     ).properties(
     title='This year Histogram ')
     return(hist.interactive())
+
+
